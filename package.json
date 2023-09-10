@@ -1,0 +1,59 @@
+{
+  "name": "web3-monorepo-tailwind-smartcontracts-template",
+  "version": "0.0.0",
+  "private": true,
+  "keywords": [
+    "ethereum",
+    "smart-contracts",
+    "template",
+    "starter",
+    "hardhat",
+    "solidity",
+    "nextjs",
+    "typescript",
+    "tailwindcss",
+    "turborepo"
+  ],
+  "repository": "github:Yunksi/web3-monorepo-tailwind-smartcontracts-template.git",
+  "license": "MIT",
+  "author": "Rok Erjavec <rok.erjavec@t-2.net>",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "dev": "turbo run dev --parallel",
+    "format": "prettier --write \"**/*.{ts,tsx,md,js,mjs}\"",
+    "lint": "turbo run lint",
+    "prepare": "husky install",
+    "sort": "sort-package-json 'package.json' 'apps/*/package.json' 'packages/{,!(node_modules)/}**/package.json'"
+  },
+  "lint-staged": {
+    "apps/**/*.{js,ts,jsx,tsx}": [
+      "prettier --write"
+    ],
+    "packages/**/*.{js,ts,jsx,tsx}": [
+      "prettier --write"
+    ]
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "eslint-config-custom": "workspace:*",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "prettier": "latest",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "sort-package-json": "^1.57.0",
+    "turbo": "latest"
+  },
+  "packageManager": "pnpm@7.9.1",
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=7.0.0"
+  },
+  "hooks": {
+    "pre-commit": "lint-staged"
+  }
+}
